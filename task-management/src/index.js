@@ -8,6 +8,12 @@ const tasks = [
   { id: 4, title: 'Test Endpoints', completed: false, priority: 'high', createdAt: new Date() },
   { id: 5, title: 'Push Code to GitHub', completed: false, priority: 'medium', createdAt: new Date() }
 ];
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'healthy',
+    uptime: process.uptime()
+  });
+});
 
 app.get('/', (req, res) => {
        res.send('Task Management API is running!');
